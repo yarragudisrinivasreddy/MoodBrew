@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoodBrew · Room pulse</title>
+  <meta name="theme-color" content="#0d0a08">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="staff">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <span class="brand">Mood<em>Brew</em> <span class="muted">· Room pulse</span></span>
+    <span class="chip" id="updated" role="status">Loading</span>
+  </header>
+  <main id="main" class="staff__grid">
+    <section class="panel" aria-labelledby="mix-title">
+      <h1 id="mix-title">The room right now</h1>
+      <p class="muted" id="guests"></p>
+      <ul class="mix" id="mix"></ul>
+    </section>
+    <section class="panel panel--tip" aria-labelledby="tip-title">
+      <h2 id="tip-title">Suggested move</h2>
+      <p class="tip" id="tip"></p>
+    </section>
+    <section class="panel" aria-labelledby="wait-title">
+      <h2 id="wait-title">Bar wait</h2>
+      <p class="big" id="wait"></p>
+      <p class="muted" id="wait-status"></p>
+    </section>
+  </main>
+  <script type="module" src="/static/staff.js"></script>
+</body>
+</html>

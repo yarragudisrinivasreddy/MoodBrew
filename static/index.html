@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>MoodBrew · What's your vibe?</title>
+  <meta name="description" content="Play a 15-second face-off at your table and get a drink picked for your vibe. Your face never leaves your phone.">
+  <meta name="theme-color" content="#0d0a08">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <span class="brand">Mood<em>Brew</em></span>
+    <span class="chip" id="table-chip" hidden></span>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="intro" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">The face-off menu</p>
+        <h1 id="hero-title">What's your <em>vibe</em> today?</h1>
+        <p class="lede">Three quick faces. We read the mood, you get a drink that fits it. No sign-up, no photos taken.</p>
+        <div class="cta-row">
+          <button class="btn btn--primary" id="start-camera" type="button">Start the face-off</button>
+          <button class="btn btn--ghost" id="start-tap" type="button">Play without camera</button>
+        </div>
+        <p class="privacy"><span aria-hidden="true" class="dot"></span> Your face is read on this phone only. Nothing is recorded or uploaded.</p>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="orb orb--spark"></div>
+        <div class="orb orb--zen"></div>
+        <div class="orb orb--cozy"></div>
+        <div class="orb orb--chaos"></div>
+      </div>
+    </section>
+
+    <section class="stage" id="stage" aria-labelledby="stage-title" hidden>
+      <h2 id="stage-title" class="sr-only">Face-off game</h2>
+      <div class="stage__frame">
+        <video id="cam" playsinline muted aria-label="Your camera preview, mirrored"></video>
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring__track" cx="60" cy="60" r="54"></circle>
+          <circle class="ring__bar" id="ring" cx="60" cy="60" r="54"></circle>
+        </svg>
+        <div class="stage__round" id="round-label"></div>
+      </div>
+      <p class="challenge" id="challenge" aria-live="polite"></p>
+      <div class="meter" aria-hidden="true"><span id="meter-fill"></span></div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <button class="btn btn--ghost" id="cancel-game" type="button">Stop and use tap mode</button>
+    </section>
+
+    <section class="tap" id="tap" aria-labelledby="tap-title" hidden>
+      <h2 id="tap-title">Pick the vibe that feels like you right now</h2>
+      <div class="tap__grid" role="radiogroup" aria-labelledby="tap-title" id="tap-grid"></div>
+    </section>
+
+    <section class="result" id="result" aria-labelledby="result-title" hidden>
+      <article class="vibecard" id="vibecard">
+        <div class="vibecard__orb" id="result-orb" aria-hidden="true"></div>
+        <p class="eyebrow" id="result-eyebrow"></p>
+        <h2 id="result-title"></h2>
+        <p class="vibecard__line" id="result-line"></p>
+        <dl class="vibecard__stats">
+          <div><dt>Points</dt><dd id="result-points"></dd></div>
+          <div><dt>Badge</dt><dd id="result-badge"></dd></div>
+        </dl>
+      </article>
+
+      <div class="picks" aria-labelledby="picks-title">
+        <h3 id="picks-title">Picked for you</h3>
+        <ul class="picks__list" id="picks"></ul>
+        <button class="btn btn--primary" id="order-btn" type="button">Send both to the bar</button>
+        <p class="status" id="order-status" role="status" aria-live="polite"></p>
+        <button class="btn btn--ghost" id="again-btn" type="button">Play again</button>
+      </div>
+    </section>
+
+    <section class="board" aria-labelledby="board-title">
+      <h2 id="board-title">Table duel</h2>
+      <p class="muted">Best scores in the last 24 hours. Beat the table next to you.</p>
+      <ol class="board__list" id="board"></ol>
+      <p class="muted" id="wait-note"></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Powered by Gemini, Cloud Run, Cloud SQL and MediaPipe.</p>
+  </footer>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
